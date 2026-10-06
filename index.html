@@ -9,7 +9,7 @@
   <meta property="og:title" content="Cyrus Caluyong | IT Support Portfolio">
   <meta property="og:description" content="IT Support and IT graduate specializing in troubleshooting, system re-imaging, network setup, and printer support.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="profile.jpg">
+  <meta property="og:image" content="images/profile.jpg">
 
   <title>Cyrus Caluyong | IT Support Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,14 +69,14 @@
       </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="about" class="section reveal">
       <div class="section-heading">
         <p class="eyebrow">// ABOUT</p>
         <h2>Practical IT skills with a problem-solving mindset.</h2>
       </div>
       <div class="about-grid">
         <div class="badge">
-          <div class="badge-photo"><img src="profile.jpg" alt="Portrait of Cyrus Caluyong"></div>
+          <div class="badge-photo"><img src="images/profile.png" alt="Portrait of Cyrus Caluyong"></div>
           <h3>Cyrus Caluyong</h3>
           <p class="badge-role">IT Support Technician</p>
           <div class="badge-footer">
@@ -104,7 +104,7 @@
       </div>
     </section>
 
-    <section id="skills" class="section muted">
+    <section id="skills" class="section muted reveal">
       <div class="section-heading">
         <p class="eyebrow">// SKILLS</p>
         <h2>What I can work with.</h2>
@@ -118,7 +118,7 @@
       </div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects" class="section reveal">
       <div class="section-heading">
         <p class="eyebrow">// PROJECTS & EXPERIENCE</p>
         <h2>Work that shows what I can do.</h2>
@@ -190,19 +190,46 @@
       </article>
     </section>
 
-    <section id="certifications" class="section muted">
+    <section id="certifications" class="section muted reveal">
       <div class="section-heading">
         <p class="eyebrow">// CERTIFICATIONS & COURSES</p>
         <h2>Continuous learning.</h2>
       </div>
       <div class="cert-list">
-        <div><span class="cert-check">✓</span><div><strong>Responsive Web Design</strong><span>Programiz</span></div></div>
-        <div><span class="cert-check">✓</span><div><strong>SEO Writing Masterclass</strong><span>Surfer</span></div></div>
-        <div><span class="cert-check">✓</span><div><strong>Introduction to Cybersecurity</strong><span>Cisco Networking Academy</span></div></div>
+        <div class="cert-item">
+          <button type="button" class="cert-thumb-wrap" data-full="images/cert-operating-systems-support.png" data-caption="Operating Systems Support — Cisco Networking Academy">
+            <img class="cert-thumb" src="images/cert-operating-systems-support.png" alt="Cisco Networking Academy Operating Systems Support certificate">
+          </button>
+          <div class="cert-info">
+            <strong>Operating Systems Support</strong>
+            <span>Cisco Networking Academy, 2026</span>
+            <a class="cert-verify" href="https://www.credly.com/badges/5a187151-7de6-4115-8519-e46477746821/public_url" target="_blank" rel="noopener">Verify on Credly →</a>
+          </div>
+        </div>
+        <div class="cert-item">
+          <button type="button" class="cert-thumb-wrap" data-full="images/cert-introduction-to-cybersecurity.jpg" data-caption="Introduction to Cybersecurity — Cisco Networking Academy">
+            <img class="cert-thumb" src="images/cert-introduction-to-cybersecurity.jpg" alt="Introduction to Cybersecurity certificate, Cisco Networking Academy">
+          </button>
+          <div class="cert-info">
+            <strong>Introduction to Cybersecurity</strong>
+            <span>Cisco Networking Academy · Mar 2025</span>
+            <a class="cert-verify" href="https://www.credly.com/badges/0046b98f-81a1-49e2-95dc-80a3155c8fe8/public_url" target="_blank" rel="noopener">Verify on Credly →</a>
+          </div>
+        </div>
+        <div class="cert-item">
+          <button type="button" class="cert-thumb-wrap" data-full="images/cert-it-infrastructure-foundations.jpg" data-caption="IT Infrastructure Foundations — Simplilearn SkillUp">
+            <img class="cert-thumb" src="images/cert-it-infrastructure-foundations.jpg" alt="Foundations of IT Infrastructure certificate of completion, Simplilearn SkillUp">
+          </button>
+          <div class="cert-info">
+            <strong>IT Infrastructure Foundations</strong>
+            <span>Simplilearn SkillUp, 2026 · Code: 10705966</span>
+            <a class="cert-verify" href="https://simpli-web.app.link/e/mzumfMh0R6b" target="_blank" rel="noopener">Verify on SimpliLearn →</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact reveal">
       <div class="contact-card">
         <p class="eyebrow">// NEW TICKET</p>
         <h2>Let's connect.</h2>
@@ -219,6 +246,11 @@
   <footer>
     <p>© 2026 Cyrus Caluyong. Built for my IT portfolio.</p>
   </footer>
+
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Certificate preview">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  </div>
 
   <script src="script.js"></script>
 </body>
