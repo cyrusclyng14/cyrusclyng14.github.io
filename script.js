@@ -51,22 +51,43 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
 });
 
-// Mobile nav toggle
+// Mobile nav: open/close, dim the page behind it, close on link / outside tap / Escape
 const navToggle = document.getElementById("navToggle");
 const siteNav = document.getElementById("siteNav");
 
-navToggle.addEventListener("click", () => {
-  const isOpen = siteNav.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", isOpen);
+function setNav(open) {
+  siteNav.classList.toggle("open", open);
+  document.body.classList.toggle("nav-open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  navToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+}
+
+navToggle.addEventListener("click", () => setNav(!siteNav.classList.contains("open")));
+siteNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setNav(false)));
+
+document.addEventListener("click", (e) => {
+  if (siteNav.classList.contains("open") && !siteNav.contains(e.target) && !navToggle.contains(e.target)) {
+    setNav(false);
+  }
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && siteNav.classList.contains("open")) {
+    setNav(false);
+    navToggle.focus();
+  }
+});
+// If the window is resized past the phone breakpoint (e.g. rotating a tablet), reset the menu
+window.matchMedia("(min-width: 801px)").addEventListener("change", (e) => {
+  if (e.matches) setNav(false);
 });
 
-// Close the mobile menu after a nav link is tapped
-siteNav.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    siteNav.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-  });
-});
+// Email: phones open their mail app (mailto), desktops without a mail app open Gmail in the browser
+const emailLink = document.querySelector("[data-gmail]");
+if (emailLink && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  emailLink.href = emailLink.dataset.gmail;
+  emailLink.target = "_blank";
+  emailLink.rel = "noopener";
+}
 
 // Highlight the current navigation section while scrolling.
 const sections = document.querySelectorAll("main section[id]");
